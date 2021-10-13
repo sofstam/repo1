@@ -12,7 +12,7 @@ jobs:
     steps:
      - uses: actions/checkout@v2
        with:
-         token: ${{ secrets.GITHUB_TOKEN }}
+         token: ${{ secrets.REPO }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
