@@ -5,10 +5,6 @@ on:
   types:
    - created
     - published
-    - unpublished
-    - created
-    - edited
-    - deleted
     - prereleased
     - released
 
@@ -18,7 +14,7 @@ jobs:
     steps:
      - uses: actions/checkout@v2
        with:
-         token: ${{ secrets.REPO2 }}
+         GITHUB_TOKEN: ${{ secrets.REPO2 }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
