@@ -1,9 +1,9 @@
 name: Update repo1
 
-on:
- release:
-  types:
-    - created
+#on:
+# release:
+#  types:
+#    - created
 
 jobs:
   get-version:
