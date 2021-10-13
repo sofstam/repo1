@@ -3,7 +3,7 @@ name: Update Pangolin
 on:
  release:
   types:
-   - created
+    - created
     - published
     - prereleased
     - released
@@ -14,12 +14,12 @@ jobs:
     steps:
      - uses: actions/checkout@v2
        with:
-         token: ${{ secrets.REPO_SCOPED_TOKEN }}
+         token: ${{ secrets.REPO }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
          curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
-         jq -r ".tag_name" > latest-version.txt
+         jq -r ".tag_name" > versions/latest-version.txt
      - name: Check for modified files
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
