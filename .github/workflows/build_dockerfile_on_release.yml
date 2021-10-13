@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v2
-       with:
-         token: ${{ secrets.REPO2 }}
+      # with:
+      #   token: ${{ secrets.REPO2 }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
