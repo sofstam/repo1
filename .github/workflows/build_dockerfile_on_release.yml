@@ -11,7 +11,7 @@ jobs:
     steps:
      - uses: actions/checkout@v2
        with:
-         token: ${{ secrets.REPO1 }}
+         token: ${{ secrets.REPO_SCOPED_TOKEN }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
