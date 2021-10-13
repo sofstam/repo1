@@ -12,22 +12,23 @@ jobs:
      - name: Fetch release version for pango-designation
        shell: bash
         run: |
-          # check pango-designation for new releases
-        # check pangoLEAR for new releases
-          curl -sL https://api.github.com/repos/cov-lineages/pango-designation/releases/latest | \
-          jq -r ".tag_name" > environments/illumina/pango-designation-latest-version.txt
+        # check repo2 for new releases
+         curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
+         jq -r ".tag_name" > latest-version.txt
+	  # curl -sL https://api.github.com/repos/cov-lineages/pango-designation/releases/latest | \
+          #jq -r ".tag_name" > environments/illumina/pango-designation-latest-version.txt
       - name: Check for modified files
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
       - name: Make new Dockerfile for latest release; commit
         if: steps.git-check.outputs.modified == 'true'
         run: |
-          PANGODES_VER=$(cat pangolin/pango-designation-latest-version.txt | sed 's|v||')
+          REPO_VER=$(cat latest-version.txt | sed 's|v||')
           # make new dir for new dockerfile; 
-          mkdir -pv environments/illumina/${PANGODES_VER}
-          cp -v environments/illumina/* environments/illumina/${PANGOLIN_VER}
+          mkdir -pv environments/illumina/${REPO_VER}
+          cp -v * ${REPO_VER}
            # have to stage new files or else they won't be commited; this doesn't fail if there is nothing new
-          git add environments/illumina/${PANGODES_VER}
-          git commit -am "New/Updated Dockerfile pangolin-designation ${PANGODES_VER}"
+          git add ${REPO_VER}
+          git commit -am "New/Updated Dockerfile pangolin-designation ${REPO_VER}"
           git push
         
