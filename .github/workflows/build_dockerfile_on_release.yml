@@ -15,7 +15,6 @@ jobs:
      - name: Fetch release version for repo2
        shell: bash
         run: |
-        # check repo2 for new releases
          curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
          jq -r ".tag_name" > latest-version.txt
       - name: Check for modified files
