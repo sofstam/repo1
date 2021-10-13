@@ -11,15 +11,13 @@ jobs:
     steps:
      - uses: actions/checkout@v2
        with:
-         token: ${{ secrets.REPO1 }}
+         token: ${{ secrets.REPO2 }}
      - name: Fetch release version for pango-designation
        shell: bash
         run: |
         # check repo2 for new releases
          curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
          jq -r ".tag_name" > latest-version.txt
-	  # curl -sL https://api.github.com/repos/cov-lineages/pango-designation/releases/latest | \
-          #jq -r ".tag_name" > environments/illumina/pango-designation-latest-version.txt
       - name: Check for modified files
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
