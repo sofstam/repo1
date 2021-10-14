@@ -1,11 +1,11 @@
 name: Update repo1
 
-on: push
-#on: 
-# release:
-#  types:
-#    - created
-#    - published
+#on: push
+on: 
+ release:
+  types:
+    - created
+    - published
 
 jobs:
   get-version:
