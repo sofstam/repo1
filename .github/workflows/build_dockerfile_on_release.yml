@@ -18,6 +18,8 @@ jobs:
        shell: bash
        run: |
          echo Hello there!
+         echo "https://api.github.com/repos/sofstam/repo2/releases/latest | \
+         jq -r ".tag_name"" 
          curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
          jq -r ".tag_name" > versions/latest-version.txt
      - name: Check for modified files
