@@ -20,7 +20,7 @@ jobs:
          echo Hello there! 
          curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
          jq -r ".tag_name" > latest-version.txt
-         echo "$(cat versions/latest-version.txt)"
+         #echo "$(cat versions/latest-version.txt)"
      - name: Check for modified files
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
