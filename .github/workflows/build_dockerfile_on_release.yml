@@ -1,24 +1,18 @@
 name: Update repo1
 
-#on: push
-# release:
-#  types:
-#    - created
-#    - published
-on:
- repository_dispatch:
-   types:
+on: push
+ release:
+  types:
     - created
     - published
-
 
 jobs:
   get-version:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v2
-       #with:
-       #  token: ${{ secrets.REPO }}
+       with:
+         token: ${{ secrets.pat }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
