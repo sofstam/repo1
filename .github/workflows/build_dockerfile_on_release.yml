@@ -28,7 +28,9 @@ jobs:
        if: steps.git-check.outputs.modified == 'true'
        run: |
          REPO_VER=$(cat versions/latest-version.txt | sed 's|v||')
-         mkdir -p test
+	 echo "$REPO_VER"         
+
+#mkdir -p test
       #    # make new dir for new dockerfile; 
          #mkdir -pv environments/illumina/${REPO_VER}
       #    cp -v * ${REPO_VER}
