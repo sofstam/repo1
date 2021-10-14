@@ -25,7 +25,7 @@ jobs:
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
      - name: Make new Dockerfile for latest release; commit
-       if: steps.git-check.outputs.modified == 'true'
+       #if: steps.git-check.outputs.modified == 'true'
        run: |
          REPO_VER=$(cat versions/latest-version.txt | sed 's|v||')
 	 echo "$REPO_VER"         
