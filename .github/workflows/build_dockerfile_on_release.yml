@@ -27,4 +27,5 @@ jobs:
      - name: Make new Dockerfile for latest release; commit
        if: steps.git-check.outputs.modified == 'true'
        run: |
-         REPO_VER=$(cat versions/latest-version.txt | sed 's|v||')  
+         REPO_VER=$(cat versions/latest-version.txt | sed 's|v||') 
+         echo "$REPO_VER" 
