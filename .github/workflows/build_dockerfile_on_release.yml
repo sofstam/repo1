@@ -19,7 +19,7 @@ jobs:
        run: |
          echo Hello there! 
          curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
-         jq -r ".tag_name" > repo1/latest-version.txt
+         jq -r ".tag_name" > latest-version.txt
          echo "$(cat versions/latest-version.txt)"
      - name: Check for modified files
        id: git-check
