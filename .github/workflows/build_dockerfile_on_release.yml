@@ -27,13 +27,4 @@ jobs:
      - name: Make new Dockerfile for latest release; commit
        if: steps.git-check.outputs.modified == 'true'
        run: |
-         echo "$(cat versions/latest-version.txt)"
-	       
-      #    # make new dir for new dockerfile; 
-         #mkdir -pv environments/illumina/${REPO_VER}
-      #    cp -v * ${REPO_VER}
-      #     # have to stage new files or else they won't be commited; this doesn't fail if there is nothing new
-      #    git add ${REPO_VER}
-      #    git commit -am "New/Updated Dockerfile pangolin-designation ${REPO_VER}"
-      #    git push
-        
+         echo "$(cat versions/latest-version.txt)"        
