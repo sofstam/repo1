@@ -27,4 +27,4 @@ jobs:
      - name: Make new Dockerfile for latest release; commit
        if: steps.git-check.outputs.modified == 'true'
        run: |
-         echo Hello!     
+         echo "$(cat versions/latest-version.txt)"  
