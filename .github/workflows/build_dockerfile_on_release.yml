@@ -1,10 +1,16 @@
 name: Update repo1
 
-on: push
+#on: push
 # release:
 #  types:
 #    - created
 #    - published
+on:
+ repository_dispatch:
+   types:
+    - created
+    - published
+
 
 jobs:
   get-version:
