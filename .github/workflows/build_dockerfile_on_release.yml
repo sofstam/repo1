@@ -12,8 +12,8 @@ jobs:
     runs-on: macos-latest
     steps:
      - uses: actions/checkout@v2
-       with:
-         token: ${{ secrets.pat }}
+       #with:
+       #  token: ${{ secrets.REPO }}
      - name: Fetch release version for repo2
        shell: bash
        run: |
