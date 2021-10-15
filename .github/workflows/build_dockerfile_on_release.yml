@@ -40,8 +40,8 @@ jobs:
      - name: Make new Dockerfile for latest release; commit
        if: steps.git-check.outputs.modified == 'true'
        run: |
-         REPO_VER=$(cat versions/latest-version.txt | sed 's|v||') 
-         echo "$REPO_VER"
+         REPO_VER=$(cat versions/pangolin-latest-version.txt | sed 's|v||') 
+         echo $REPO_VER
   push_dockerhub:
    needs: get-version
    if: needs.get-version.outputs.new-dockerfile == 'true'   
@@ -62,4 +62,9 @@ jobs:
       - name: Build new docker image
         shell: bash
         run: | 
-          docker build --no-cache -t Dockerfile -t artic-ncov2019-illumina:<version> 
+          docker build --no-cache -t Dockerfile -t artic-ncov2019-illumina:${REPO_VER} 
+      - name: Push Docker image to Dockerhub
+        shell: bash
+        run: | 
+          docker image push genomicmedicinesweden/pangolin:latest 
+      
