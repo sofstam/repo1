@@ -32,7 +32,8 @@ jobs:
          echo "$(cat versions/constellations-latest-version.txt)" 
          curl -sL https://api.github.com/repos/cov-lineages/pangolin/releases/latest | \
          jq -r ".tag_name" > versions/pangolin-latest-version.txt
-         echo "$(cat versions/pangolin-latest-version.txt)"     
+         PANGOLIN_VER=$(cat versions/pangolin-latest-version.txt)
+         echo 'PANGOLIN_VER'
      - name: Check for modified files
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
@@ -56,4 +57,9 @@ jobs:
       - name: Build new docker image
         shell: bash
         run: |
-          echo "test" 
+          echo "test"
+  
+      - name: Build new docker image
+        shell: bash
+        run: | 
+          docker build --no-cache -t Dockerfile -t artic-ncov2019-illumina:<version> 
