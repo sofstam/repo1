@@ -47,23 +47,12 @@ jobs:
        with:
          username: ${{ secrets.DOCKERHUB_USERNAME }}
          password: ${{ secrets.DOCKERHUB_PASS }}
-   
-
-#steps:
-#      - name: Check out pipeline code
-#        uses: actions/checkout@v2
-#        
-#      - name: Build new docker image
-#        shell: bash
-#        run: |
-#          echo "test"
-#  
-#      - name: Build new docker image
-#        shell: bash
-#        run: | 
-#          docker build --no-cache -t Dockerfile -t artic-ncov2019-illumina:${REPO_VER} 
-#      - name: Push Docker image to Dockerhub
-#        shell: bash
-#        run: | 
-#          docker image push genomicmedicinesweden/pangolin:latest 
+     - name: Build new docker image
+       shell: bash
+       run: | 
+         docker build --no-cache -t Dockerfile -t artic-ncov2019-illumina:${REPO_VER} 
+     - name: Push Docker image to Dockerhub
+       shell: bash
+       run: | 
+         docker image push genomicmedicinesweden/pangolin:latest 
       
