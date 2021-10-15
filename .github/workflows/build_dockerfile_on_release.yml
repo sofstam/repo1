@@ -50,7 +50,7 @@ jobs:
      - name: Build new docker image
        shell: bash
        run: | 
-         docker build --no-cache -t artic-ncov2019-illumina:latest 
+         docker build -f Dockerfile -t artic-ncov2019-illumina:latest 
     # - name: Push Docker image to Dockerhub
     #   shell: bash
     #   run: | 
