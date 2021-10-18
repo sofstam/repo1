@@ -64,7 +64,7 @@ jobs:
      - name: Push Docker image to DockerHub
        shell: bash
        run: |
-         docker image push genomicmedicinesweden/pangolin:latest
+         docker image push genomicmedicinesweden/artic-ncov2019-illumina:latest
 
 #     - name: Check out pipeline code
 #       uses: docker/build-push-action@v2
