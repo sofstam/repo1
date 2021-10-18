@@ -49,13 +49,4 @@ jobs:
          password: ${{ secrets.DOCKERHUB_PASS }}
      - name: Check out pipeline code
        uses: docker/build-push-action@v2
-   
-#     - name: Build new docker image
-#       shell: bash
-#       run: | 
-#         docker build .
-    # - name: Push Docker image to Dockerhub
-    #   shell: bash
-    #   run: | 
-    #     docker image push genomicmedicinesweden/pangolin:latest 
-      
+         
