@@ -53,7 +53,7 @@ jobs:
      - name: Build new docker image
        shell: bash
        run: | 
-         docker build --no-cache -f repo1/environments/illumina/Dockerfile -t artic-ncov2019-illumina:latest .
+         docker build --no-cache -f illumina/Dockerfile -t artic-ncov2019-illumina:latest .
     # - name: Push Docker image to Dockerhub
     #   shell: bash
     #   run: | 
