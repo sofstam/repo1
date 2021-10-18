@@ -53,7 +53,7 @@ jobs:
      - name: Build new docker image
        shell: bash
        run: | 
-         docker build . -f environments/illumina/Dockerfile 
+         docker build . -f /environments/illumina/Dockerfile 
     # - name: Push Docker image to Dockerhub
     #   shell: bash
     #   run: | 
