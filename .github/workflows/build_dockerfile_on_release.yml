@@ -59,7 +59,7 @@ jobs:
      - name: Build new docker image
        shell: bash 
        run: |
-         docker build --no-cache -f environments/illumina/Dockerfile -t artic-ncov2019-illumina:latest .           
+         docker build --no-cache -f Dockerfile -t artic-ncov2019-illumina:latest .           
 
 
 #     - name: Check out pipeline code
