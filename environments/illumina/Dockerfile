@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:latest AS condabuild
+FROM continuumio/miniconda3:latest as condabuild
 LABEL authors="Matt Bull" \
       description="Docker image containing all requirements for an Illumina ncov2019 pipeline"
 
@@ -13,6 +13,9 @@ RUN apt-get update && \
 apt-get install -y git procps && \
 apt-get clean -y 
 COPY --from=condabuild /opt/conda/envs/artic-ncov2019-illumina /opt/conda/envs/artic-ncov2019-illumina
+RUN docker buildx version
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
 ENV PATH=/opt/conda/envs/artic-ncov2019-illumina/bin:$PATH
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
