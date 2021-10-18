@@ -60,7 +60,11 @@ jobs:
        shell: bash 
        run: |
          docker build --no-cache -f Dockerfile -t artic-ncov2019-illumina:latest .           
-
+     
+     - name: Push Docker image to DockerHub
+       shell: bash
+       run: |
+         docker image push genomicmedicinesweden/pangolin:latest
 
 #     - name: Check out pipeline code
 #       uses: docker/build-push-action@v2
