@@ -48,6 +48,6 @@ jobs:
        with:
          username: ${{ secrets.DOCKERHUB_USERNAME }}
          password: ${{ secrets.DOCKERHUB_PASS }}
-     - name: Check out pipeline code
-       uses: docker/build-push-action@v1
+#     - name: Check out pipeline code
+#       uses: docker/build-push-action@v2
          
