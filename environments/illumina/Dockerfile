@@ -13,7 +13,6 @@ RUN apt-get update && \
 apt-get install -y git procps && \
 apt-get clean -y 
 COPY --from=condabuild /opt/conda/envs/artic-ncov2019-illumina /opt/conda/envs/artic-ncov2019-illumina
-RUN docker buildx version
 export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
 ENV PATH=/opt/conda/envs/artic-ncov2019-illumina/bin:$PATH
