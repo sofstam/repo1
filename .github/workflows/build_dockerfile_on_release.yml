@@ -15,11 +15,11 @@ jobs:
      - name: Get current date
        id: date
        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-     #- name: Test with environment variables
-     #  run: echo $TAG_NAME - $RELEASE_NAME
-     #  env:
-     #    TAG_NAME: nightly-tag-${{ steps.date.outputs.date }}
-     #    RELEASE_NAME: nightly-release-${{ steps.date.outputs.date }}     
+     - name: Test with environment variables
+       run: echo $RELEASE_DATE
+       env:
+       #  TAG_NAME: nightly-tag-${{ steps.date.outputs.date }}
+         RELEASE_DATE: ${{ steps.date.outputs.date }}     
      - name: Fetch pangolin version
        shell: bash
        run: |
@@ -84,7 +84,7 @@ jobs:
      - name: Push Docker image to DockerHub
        shell: bash
        run: |
-         docker image push sofsta/artic-ncov2019-illumina:${{ steps.date.outputs.date }}
+         docker image push sofsta/artic-ncov2019-illumina:$RELEASE_DATE
 
 #     - name: Check out pipeline code
 #       uses: docker/build-push-action@v2
