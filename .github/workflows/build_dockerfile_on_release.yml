@@ -24,8 +24,8 @@ jobs:
          ##Get pango-designation version
          curl -sL https://api.github.com/repos/cov-lineages/pango-designation/releases/latest | \
          jq -r ".tag_name" > versions/pangodesignation-latest-version.txt
-         pangodesign_VER= $(cat versions/pangodesignation-latest-version.txt)
-	 echo $pangodesign_VER         
+         pangodesign_VER=$(cat versions/pangodesignation-latest-version.txt)
+         echo $pangodesign_VER         
 
          ##Get constellations version
          curl -sL https://api.github.com/repos/cov-lineages/constellations/releases/latest | \
