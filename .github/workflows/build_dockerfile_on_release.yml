@@ -62,7 +62,8 @@ jobs:
        run: |
          REPO_VER=$(cat versions/pangolin-latest-version.txt | sed 's|v||') 
          echo $REPO_VER
-    
+	 pangoLEARN_VER=$(cat versions/pangoLEARN-latest-version.txt | sed 's|v||')   
+ 
      - name: Login to Docker Hub
        uses: docker/login-action@v1
        with:
@@ -80,16 +81,18 @@ jobs:
        shell: bash 
        run: |
          echo  ${{ steps.date.outputs.date }}
-         echo $REPO_VER
          REPO_VER=$(cat versions/pangolin-latest-version.txt | sed 's|v||')
-         echo $REPO_VER
+         pangoLEARN_VER=$(cat versions/pangoLEARN-latest-version.txt)
+         scorpio_VER=$(cat versions/scorpio-latest-version.txt | sed 's|v||')
+         constellations_VER=$(cat versions/constellations-latest-version.txt | sed 's|v||')
+         pangodesign_VER=$(cat versions/pangodesignation-latest-version.txt | sed 's|v||' )  
          docker build --no-cache -f Dockerfile -t sofsta/artic-ncov2019-illumina:${{ steps.date.outputs.date }}-pangolin-${REPO_VER}-pangoLEARN-${pangoLEARN_VER}-constellations-${constellations_VER}-designation-${pangodesign_VER}-scorpio-${scorpio_VER} .           
      
-    # - name: Push Docker image to DockerHub
-    #   shell: bash
-    #   run: |
-    #     docker image push sofsta/artic-ncov2019-illumina:${{ steps.date.outputs.date }}-pangolin-${PANGOLIN_VER}-pangoLEARN-${pangoLEARN_VER}-constellations-${constellations_VER}-designation-${pangodesign_VER}-scorpio-${scorpio_VER}
+     - name: Push Docker image to DockerHub
+       shell: bash
+       run: |
+         docker image push sofsta/artic-ncov2019-illumina:${{ steps.date.outputs.date }}-pangolin-${PANGOLIN_VER}-pangoLEARN-${pangoLEARN_VER}-constellations-${constellations_VER}-designation-${pangodesign_VER}-scorpio-${scorpio_VER}
 
-    # - name: Check out pipeline code
-    #   uses: docker/build-push-action@v2
+     - name: Check out pipeline code
+       uses: docker/build-push-action@v2
          
