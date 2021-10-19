@@ -1,6 +1,5 @@
 name: Update repo1
 
-#on: push
 on: 
  release:
   types:
@@ -12,28 +11,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v2
-       #with:
-       #  token: ${{ secrets.REPO }}
-     - name: Fetch release version for repo2
+
+     - name: Fetch pangolin version
        shell: bash
        run: |
-         echo Hello there! 
-         #curl -sL https://api.github.com/repos/sofstam/repo2/releases/latest | \
-         #jq -r ".tag_name" > versions/latest-version.txt
-         #echo "$(cat versions/latest-version.txt)"
+         ##Get pangoLEARN version
          curl -sL https://api.github.com/repos/cov-lineages/pangoLEARN/releases/latest | \
          jq -r ".tag_name" > versions/pangoLEARN-latest-version.txt
-         echo "$(cat versions/pangoLEARN-latest-version.txt)"
+         pangoLEARN_VER=$(cat versions/pangoLEARN-latest-version.txt)
+         echo $pangoLEARN_VER
+
+         ##Get pango-designation version
          curl -sL https://api.github.com/repos/cov-lineages/pango-designation/releases/latest | \
          jq -r ".tag_name" > versions/pangodesignation-latest-version.txt
-         echo "$(cat versions/pangodesignation-latest-version.txt)"
+         pangodesign_VER= $(cat versions/pangodesignation-latest-version.txt)
+	 echo $pangodesign_VER         
+
+         ##Get constellations version
          curl -sL https://api.github.com/repos/cov-lineages/constellations/releases/latest | \
          jq -r ".tag_name" > versions/constellations-latest-version.txt
-         echo "$(cat versions/constellations-latest-version.txt)" 
-         curl -sL https://api.github.com/repos/cov-lineages/pangolin/releases/latest | \
+         constellation_VER= $(cat versions/constellations-latest-version.txt) 
+         echo $constellation_VER
+         
+         ##Get pangolin version
+	 curl -sL https://api.github.com/repos/cov-lineages/pangolin/releases/latest | \
          jq -r ".tag_name" > versions/pangolin-latest-version.txt
          PANGOLIN_VER=$(cat versions/pangolin-latest-version.txt)
          echo $PANGOLIN_VER
+	
+	 ##Get scorpio version 
+         curl -sL https://api.github.com/repos/cov-lineages/scorpio/releases/latest | \
+         jq -r ".tag_name" > versions/scorpio-latest-version.txt
+         scorpio_VER=$(cat versions/scorpio-latest-version.txt)
+         echo $scorpio_VER
+ 
+
      - name: Check for modified files
        id: git-check
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
