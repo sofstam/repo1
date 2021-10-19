@@ -30,8 +30,8 @@ jobs:
          ##Get constellations version
          curl -sL https://api.github.com/repos/cov-lineages/constellations/releases/latest | \
          jq -r ".tag_name" > versions/constellations-latest-version.txt
-         echo "$(cat versions/constellations-latest-version.txt)" 
-         #echo $constellation_VER
+         constellations_VER=$(cat versions/constellations-latest-version.txt)" 
+         echo $constellations_VER
          
          ##Get pangolin version
          curl -sL https://api.github.com/repos/cov-lineages/pangolin/releases/latest | \
