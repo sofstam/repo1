@@ -33,12 +33,12 @@ jobs:
          constellation_VER= $(cat versions/constellations-latest-version.txt) 
          echo $constellation_VER
          
-         ##Get pangolin version
-	 curl -sL https://api.github.com/repos/cov-lineages/pangolin/releases/latest | \
+	 ##Get pangolin version
+         curl -sL https://api.github.com/repos/cov-lineages/pangolin/releases/latest | \
          jq -r ".tag_name" > versions/pangolin-latest-version.txt
          PANGOLIN_VER=$(cat versions/pangolin-latest-version.txt)
          echo $PANGOLIN_VER
-	
+
 	 ##Get scorpio version 
          curl -sL https://api.github.com/repos/cov-lineages/scorpio/releases/latest | \
          jq -r ".tag_name" > versions/scorpio-latest-version.txt
