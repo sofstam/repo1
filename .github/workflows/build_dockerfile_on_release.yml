@@ -79,7 +79,7 @@ jobs:
      - name: Build new docker image
        shell: bash 
        run: |
-         echo $RELEASE_DATE
+         echo  ${{ steps.date.outputs.date }}
          #docker build --no-cache -f Dockerfile -t sofsta/artic-ncov2019-illumina:$RELEASE_DATE .           
      
     # - name: Push Docker image to DockerHub
