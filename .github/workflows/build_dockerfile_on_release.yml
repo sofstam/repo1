@@ -1,10 +1,12 @@
-name: Update repo1
+name: Update docker for artic-ncov2019-illumina
+on:
+ schedule:
+  - cron: '00 11,16:22 * * *'
 
-on: 
- release:
-  types:
-    - created
-    - published
+# release:
+#  types:
+#    - created
+#    - published
 
 jobs:
   get-version:
