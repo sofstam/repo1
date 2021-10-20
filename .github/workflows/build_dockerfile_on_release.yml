@@ -71,7 +71,8 @@ jobs:
      
      - name: Set up Docker Buildx
        id: buildx
-       uses: environments/illumina/docker/setup-buildx-action@v1
+       path: environments/illumina
+       uses: docker/setup-buildx-action@v1
 
      - name: Check out pipeline code 
        uses: docker/build-push-action@v2
