@@ -100,6 +100,5 @@ jobs:
          pangodesign_VER=$(cat versions/pangodesignation-latest-version.txt | sed 's|v||' )
          docker image push sofsta/artic-ncov2019-illumina:latest
          docker image push sofsta/artic-ncov2019-illumina:${{ steps.date.outputs.date }}-pangolin-${REPO_VER}-pangoLEARN-${pangoLEARN_VER}-constellations-${constellations_VER}-designation-${pangodesign_VER}-scorpio-${scorpio_VER}
-     - name: Check out pipeline code
-       uses: docker/build-push-action@v2
-         
+     #- name: Check out pipeline code
+     #  uses: docker/build-push-action@v2         
