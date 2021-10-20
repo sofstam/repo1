@@ -76,7 +76,7 @@ jobs:
      - name: Check out pipeline code 
        uses: docker/build-push-action@v2
        with:
-         context:./
+         context: ./
          file: environments/illumina/Dockerfile
    
      - name: Build new docker image
