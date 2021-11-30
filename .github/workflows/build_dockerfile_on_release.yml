@@ -82,8 +82,11 @@ jobs:
          context: ./
          file: environments/illumina/Dockerfile
    
-      - name: Pull docker image
-        shell: bash
-        run: | 
-          docker pull genomicmedicinesweden/gms-artic-illumina:latest
-       
+     - name: Pull docker image
+       shell: bash
+
+  
+      #- name: Pull docker image
+      #  shell: bash
+        #run: | 
+        #  docker pull genomicmedicinesweden/gms-artic-illumina:latest
