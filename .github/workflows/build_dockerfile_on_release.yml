@@ -89,7 +89,7 @@ jobs:
        shell: bash
        run: |
          docker pull genomicmedicinesweden/gms-artic-illumina:latest
-
+         docker save gms-artic-illumina:latest
   
       #- name: Pull docker image
       #  shell: bash
