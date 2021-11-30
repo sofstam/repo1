@@ -105,7 +105,7 @@ jobs:
      #    docker image push sofsta/artic-ncov2019-illumina:${{ steps.date.outputs.date }}-p-${REPO_VER}-L-${pangoLEARN_VER}-c-${constellations_VER}-d-${pangodesign_VER}-s-${scorpio_VER}
       
     - name: Pull docker image
-      shell: bash
-      run: | 
-        docker pull genomicmedicinesweden/gms-artic-illumina:latest
+      #shell: bash
+      #run: | 
+      #  docker pull genomicmedicinesweden/gms-artic-illumina:latest
        
