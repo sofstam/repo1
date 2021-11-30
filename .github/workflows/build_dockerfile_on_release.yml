@@ -9,6 +9,9 @@ on:
   types:
    - created
    - published
+ push:
+   branches:
+   - master
 
 jobs:
   get-version:
