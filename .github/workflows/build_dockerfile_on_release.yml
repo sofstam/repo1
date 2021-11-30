@@ -88,8 +88,8 @@ jobs:
      - name: Pull docker image
        shell: bash
        run: |
-         docker pull genomicmedicinesweden/gms-artic-illumina:latest
-         docker save gms-artic-illumina:latest
+         docker pull ghcr.io/genomicmedicinesweden/gms-artic-illumina:latest
+         
   
       #- name: Pull docker image
       #  shell: bash
